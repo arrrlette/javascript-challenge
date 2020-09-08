@@ -13,7 +13,7 @@ data.forEach(function (sightings) {
     Object.entries(sightings).forEach(function ([key, value]) {
         //console.log(key, value);
         // Append a cell to the row for each value in the sightings report object
-        var cell = row.append("td"); 
+        var cell = row.append("td");
         cell.text(value);
     });
 });
@@ -25,7 +25,7 @@ var button = d3.select("#filter-btn");
 var form = d3.select("form");
 
 // Create event handlers for clicking the button or pressing the enter key 
-button.on("click", runEnter); 
+button.on("click", runEnter);
 form.on("submit", runEnter);
 
 // Complete the event handler function for the form
@@ -44,7 +44,7 @@ function runEnter() {
     var inputElement = d3.select("#datetime");
 
     // Get the value property of the input element
-    var inputValue = inputElement.property("value");  
+    var inputValue = inputElement.property("value");
 
     console.log(inputValue);
 
@@ -52,10 +52,19 @@ function runEnter() {
 
     console.log(filteredData);
 
-    //tbody.append("tr").filteredData;
-    //we need to display the filtered data on the webpage...
+    filteredData.forEach(function (updateTable) {
+        //console.log(sightings);
+        var row = tbody.append("tr"); //add a row to the table to hold each item
+        Object.entries(updateTable).forEach(function ([key, value]) {
+            //console.log(key, value);
+            // Append a cell to the row for each value in the sightings report object
+            var cell = row.append("td");
+            cell.text(value);
+        });
+    });
+        
 
-};
+    };
 
 
 
