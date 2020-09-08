@@ -1,14 +1,6 @@
 // from data.js
 var tableData = data;
-
-//console.log(tableData[0]);
-//console.log(Object.keys(tableData));
-//for (var sightings in tableData){
-//    console.log(tableData[sightings])
-//};
-// for (var sightings in tableData){
-//    console.log(Object.entries(sightings))
-// };
+//console.log(tableData);
 
 
 // Get a reference to the table body
@@ -17,25 +9,33 @@ var tbody = d3.select("tbody");
 //Use d3 to update each cell's text with sightings report values
 data.forEach(function (sightings) {
     //console.log(sightings);
-    var row = tbody.append("tr");
+    var row = tbody.append("tr"); //add a row to the table to hold each item
     Object.entries(sightings).forEach(function ([key, value]) {
         //console.log(key, value);
         // Append a cell to the row for each value in the sightings report object
-        var cell = row.append("td");
+        var cell = row.append("td"); 
         cell.text(value);
     });
 });
 
+// Select the button
+var button = d3.select("#filter-btn");
 
 // Select the form
 var form = d3.select("form");
-var button = d3.select("#filter-btn");
 
-// Create event handlers
+// Create event handlers for clicking the button or pressing the enter key 
 button.on("click", runEnter); 
 form.on("submit", runEnter);
 
+// Complete the event handler function for the form
 function runEnter() {
+
+    //display object that dispatched the event in the console
+    console.log(d3.event.target);
+
+    // Prevent the page from refreshing
+    d3.event.preventDefault();
 
     // remove any children from the list
     tbody.html("");
