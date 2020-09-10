@@ -23,7 +23,7 @@ var form = d3.select("form");
 
 // Create event handlers for clicking the button or pressing the enter key 
 button.on("click", runEnter);
-form.on("submit", runEnter);
+form.on("change", runEnter);
 
 // Complete the event handler function for the form
 function runEnter() {
