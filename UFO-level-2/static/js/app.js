@@ -58,23 +58,23 @@ function runEnter() {
     var filteredData = [...tableData]; //to make each filter independent of each other
     if (datetimeValue){
         filteredData = filteredData.filter(obj => obj.datetime === datetimeValue);
-    }
+    };
 
     if (cityValue){
         filteredData = filteredData.filter(obj => obj.city.toLowerCase() === cityValue.toLowerCase());
-    }
+    };
 
     if (stateValue){
         filteredData = filteredData.filter(obj => obj.state.toLowerCase() === stateValue.toLowerCase());
-    }
+    };
 
     if (countryValue){
         filteredData = filteredData.filter(obj => obj.country.toLowerCase() === countryValue.toLowerCase());
-    }
+    };
 
     if (shapeValue){
         filteredData = filteredData.filter(obj => obj.shape.toLowerCase() === shapeValue.toLowerCase());
-    }
+    };
 
     console.log(filteredData);
 
